@@ -1,37 +1,13 @@
+const {Stream} = require("stream");
 
-
-const { Plugin,  StreamSpeechResult } = require("@fonoster/common");
-const { Stream } = require("stream");
-
-class MyPlugin extends Plugin {
-  constructor() {
-    super("asr", "myplugin");
-  }
-  createSpeechTracker(options) {
-    return new PluginTracker();
-  }
-}
-
-class PluginTracker {
-    streamTranscribe(stream) {
-        return new PluginResult()
-    }
-
-    transcribe(stream) {
-        return Promise.resolve({
-            transcript: "Hello World",
-            isFinal: true
-        });
-    }
-
-}
-
-class PluginResult {
+class PluginResult /*implements StreamSpeechResult*/ {
   stream;
 
   constructor() {
     this.stream = new Stream();
   }
+
+
 
   close() {
     this.stream.removeAllListeners();
@@ -62,4 +38,4 @@ class PluginResult {
   }
 }
 
-module.exports = MyPlugin;
+module.exports = PluginResult;
