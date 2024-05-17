@@ -14,6 +14,8 @@
     "@fonoster/googletts": "^0.4.13",
     "@fonoster/sdk": "^0.4.13",
     "@fonoster/voice": "^0.3.31",
-    "node-audiorecorder": "^3.0.0"
+    "husky": "^9.0.11",
+    "node-audiorecorder": "^3.0.0",
+    "root": "file:fonoster"
   }
 }
